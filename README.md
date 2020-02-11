@@ -25,6 +25,6 @@ pbshost
 
 ---
 ## _History_ ##
-_Ver.0.3 ( latest )_ @ 02.11.2020.Tue.: added libraries of Anaconda3, build-essential, OpenMPI, MKL
-_Ver.0.2_ @ 02.09.2020.Sun.: packaged minimal of torque system
-_Ver.0.1_ @ 02.09.2020.Sun.: initial commition
+_Ver.0.3 ( latest )_ @ 02.11.2020.Tue.: added libraries of Anaconda3, build-essential, OpenMPI, MKL  
+_Ver.0.2_ @ 02.09.2020.Sun.: packaged minimal of torque system  
+_Ver.0.1_ @ 02.09.2020.Sun.: initial commition  
