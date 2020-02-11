@@ -83,8 +83,11 @@ RUN apt install --yes intel-mkl-64bit-2020.0-088
 
 #--- environmental setteings ---#
 
+# empty line
+RUN ["/bin/bash", "-c", "echo \"\" >> ~/.bashrc"]
+
 # hash tag
-RUN ["/bin/bash", "-c", "echo \"\\n# exporting environmental variable\" >> ~/.bashrc"]
+RUN ["/bin/bash", "-c", "echo \"# exporting environmental variable\" >> ~/.bashrc"]
 
 # lib and ld path
 RUN ["/bin/bash", "-c", "echo \"export LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib\" >> ~/.bashrc"]
@@ -99,7 +102,20 @@ RUN ["/bin/bash", "-c", "echo \"export LIBRARY_PATH=\\$MKL_ROOT_DIR/lib/intel64:
 RUN ["/bin/bash", "-c", "echo \"export LD_LIBRARY_PATH=\\$MKL_ROOT_DIR/lib/intel64:/opt/intel/lib/intel64_lin:\\$LD_LIBRARY_PATH\" >> ~/.bashrc"]
 
 # empty line
-RUN ["/bin/bash", "-c", "echo \"\\n\" >> ~/.bashrc"]
+RUN ["/bin/bash", "-c", "echo \"\" >> ~/.bashrc"]
+
+
+#--- sample configuration ---#
+
+# make "test" directory
+RUN ["/bin/bash", "-c", "mkdir /home/test"]
+
+# copy file for testing
+COPY ./run.sh /home/test/run.sh
+COPY ./test.cpp /home/test/test.cpp
+
+# MPI g++ compile test code
+RUN ["/bin/bash", "-c", "mpicxx -o /home/test/test /home/test/test.cpp"]
 
 
 #--- Starting up configuration ---#
