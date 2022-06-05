@@ -19,7 +19,7 @@ services:
         # depends on the .env file
         HOST: ${HOST}
 
-    image: "cetusk/pbs-ubuntu16.04:0.3"
+    image: "cetusk/pbs-ubuntu16.04:latest"
 
     container_name: "worker"
 
